@@ -68,7 +68,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtBoxHouseholdTag = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -455,14 +455,14 @@
             this.label10.TabIndex = 23;
             this.label10.Text = "Household Name:";
             // 
-            // textBox2
+            // txtBoxHouseholdTag
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(848, 688);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(179, 30);
-            this.textBox2.TabIndex = 22;
+            this.txtBoxHouseholdTag.Enabled = false;
+            this.txtBoxHouseholdTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxHouseholdTag.Location = new System.Drawing.Point(848, 688);
+            this.txtBoxHouseholdTag.Name = "txtBoxHouseholdTag";
+            this.txtBoxHouseholdTag.Size = new System.Drawing.Size(179, 30);
+            this.txtBoxHouseholdTag.TabIndex = 22;
             // 
             // button2
             // 
@@ -484,7 +484,7 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtBoxHouseholdTag);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnDeleteTable);
@@ -560,7 +560,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtBoxHouseholdTag;
         private System.Windows.Forms.Button button2;
     }
 }

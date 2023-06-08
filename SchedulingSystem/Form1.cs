@@ -250,8 +250,11 @@ namespace SchedulingSystem
 
         private void btnChooseHH_Click(object sender, EventArgs e)
         {
-            Form2 frm2 = new Form2();
-            frm2.ShowDialog();
+            using (Form2 frm2 = new Form2())
+            {          
+               frm2.ShowDialog();
+               txtBoxHouseholdTag.Text = frm2.sendHouseholdName;
+            }
         }
     }
 }

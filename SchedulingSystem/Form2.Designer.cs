@@ -37,24 +37,25 @@
             this.hhHeadEmployer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hhHeadWorkNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hhHeadHomeNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnEditAppoint = new System.Windows.Forms.Button();
+            this.btnAddHousehold = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtBoxPatientCN = new System.Windows.Forms.TextBox();
+            this.txtBoxHHHeadInsurance = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtBoxPatientID = new System.Windows.Forms.TextBox();
+            this.txtBoxHHHeadLName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtBoxPatientMName = new System.Windows.Forms.TextBox();
+            this.txtBoxHHHeadMName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtBoxPatientFName = new System.Windows.Forms.TextBox();
+            this.txtBoxHHHeadFName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtBoxPatientLName = new System.Windows.Forms.TextBox();
+            this.txtBoxHHName = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.txtBoxHHHeadEmployer = new System.Windows.Forms.TextBox();
+            this.btnEditHousehold = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtBoxHHHeadWorkNumber = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtBoxHHHeadHomeNumber = new System.Windows.Forms.TextBox();
+            this.btnChooseHousehold = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridHousehold)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,11 +73,12 @@
             this.hhHeadEmployer,
             this.hhHeadWorkNumber,
             this.hhHeadHomeNumber});
-            this.dataGridHousehold.Location = new System.Drawing.Point(383, 0);
+            this.dataGridHousehold.Location = new System.Drawing.Point(383, 19);
             this.dataGridHousehold.Name = "dataGridHousehold";
             this.dataGridHousehold.ReadOnly = true;
-            this.dataGridHousehold.Size = new System.Drawing.Size(1295, 861);
+            this.dataGridHousehold.Size = new System.Drawing.Size(1261, 861);
             this.dataGridHousehold.TabIndex = 0;
+            this.dataGridHousehold.SelectionChanged += new System.EventHandler(this.dataGridHousehold_SelectionChanged);
             // 
             // householdName
             // 
@@ -134,15 +136,16 @@
             this.hhHeadHomeNumber.Name = "hhHeadHomeNumber";
             this.hhHeadHomeNumber.ReadOnly = true;
             // 
-            // btnEditAppoint
+            // btnAddHousehold
             // 
-            this.btnEditAppoint.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditAppoint.Location = new System.Drawing.Point(27, 780);
-            this.btnEditAppoint.Name = "btnEditAppoint";
-            this.btnEditAppoint.Size = new System.Drawing.Size(152, 57);
-            this.btnEditAppoint.TabIndex = 27;
-            this.btnEditAppoint.Text = "EDIT APPOINTMENT";
-            this.btnEditAppoint.UseVisualStyleBackColor = true;
+            this.btnAddHousehold.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddHousehold.Location = new System.Drawing.Point(29, 758);
+            this.btnAddHousehold.Name = "btnAddHousehold";
+            this.btnAddHousehold.Size = new System.Drawing.Size(152, 57);
+            this.btnAddHousehold.TabIndex = 27;
+            this.btnAddHousehold.Text = "ADD HOUSEHOLD";
+            this.btnAddHousehold.UseVisualStyleBackColor = true;
+            this.btnAddHousehold.Click += new System.EventHandler(this.btnAddHousehold_Click);
             // 
             // label5
             // 
@@ -154,13 +157,13 @@
             this.label5.TabIndex = 26;
             this.label5.Text = "Household Head - Insurance:";
             // 
-            // txtBoxPatientCN
+            // txtBoxHHHeadInsurance
             // 
-            this.txtBoxPatientCN.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxPatientCN.Location = new System.Drawing.Point(30, 417);
-            this.txtBoxPatientCN.Name = "txtBoxPatientCN";
-            this.txtBoxPatientCN.Size = new System.Drawing.Size(291, 30);
-            this.txtBoxPatientCN.TabIndex = 25;
+            this.txtBoxHHHeadInsurance.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxHHHeadInsurance.Location = new System.Drawing.Point(30, 417);
+            this.txtBoxHHHeadInsurance.Name = "txtBoxHHHeadInsurance";
+            this.txtBoxHHHeadInsurance.Size = new System.Drawing.Size(291, 30);
+            this.txtBoxHHHeadInsurance.TabIndex = 25;
             // 
             // label4
             // 
@@ -172,13 +175,13 @@
             this.label4.TabIndex = 24;
             this.label4.Text = "Household Head - Last Name:";
             // 
-            // txtBoxPatientID
+            // txtBoxHHHeadLName
             // 
-            this.txtBoxPatientID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxPatientID.Location = new System.Drawing.Point(30, 328);
-            this.txtBoxPatientID.Name = "txtBoxPatientID";
-            this.txtBoxPatientID.Size = new System.Drawing.Size(291, 30);
-            this.txtBoxPatientID.TabIndex = 23;
+            this.txtBoxHHHeadLName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxHHHeadLName.Location = new System.Drawing.Point(30, 328);
+            this.txtBoxHHHeadLName.Name = "txtBoxHHHeadLName";
+            this.txtBoxHHHeadLName.Size = new System.Drawing.Size(291, 30);
+            this.txtBoxHHHeadLName.TabIndex = 23;
             // 
             // label3
             // 
@@ -190,13 +193,13 @@
             this.label3.TabIndex = 22;
             this.label3.Text = "Household Head - Middle Name:";
             // 
-            // txtBoxPatientMName
+            // txtBoxHHHeadMName
             // 
-            this.txtBoxPatientMName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxPatientMName.Location = new System.Drawing.Point(30, 238);
-            this.txtBoxPatientMName.Name = "txtBoxPatientMName";
-            this.txtBoxPatientMName.Size = new System.Drawing.Size(291, 30);
-            this.txtBoxPatientMName.TabIndex = 21;
+            this.txtBoxHHHeadMName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxHHHeadMName.Location = new System.Drawing.Point(30, 238);
+            this.txtBoxHHHeadMName.Name = "txtBoxHHHeadMName";
+            this.txtBoxHHHeadMName.Size = new System.Drawing.Size(291, 30);
+            this.txtBoxHHHeadMName.TabIndex = 21;
             // 
             // label2
             // 
@@ -208,13 +211,13 @@
             this.label2.TabIndex = 20;
             this.label2.Text = "Household Head - First Name:";
             // 
-            // txtBoxPatientFName
+            // txtBoxHHHeadFName
             // 
-            this.txtBoxPatientFName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxPatientFName.Location = new System.Drawing.Point(30, 150);
-            this.txtBoxPatientFName.Name = "txtBoxPatientFName";
-            this.txtBoxPatientFName.Size = new System.Drawing.Size(291, 30);
-            this.txtBoxPatientFName.TabIndex = 19;
+            this.txtBoxHHHeadFName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxHHHeadFName.Location = new System.Drawing.Point(30, 150);
+            this.txtBoxHHHeadFName.Name = "txtBoxHHHeadFName";
+            this.txtBoxHHHeadFName.Size = new System.Drawing.Size(291, 30);
+            this.txtBoxHHHeadFName.TabIndex = 19;
             // 
             // label1
             // 
@@ -226,13 +229,14 @@
             this.label1.TabIndex = 18;
             this.label1.Text = "Household Name:";
             // 
-            // txtBoxPatientLName
+            // txtBoxHHName
             // 
-            this.txtBoxPatientLName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxPatientLName.Location = new System.Drawing.Point(30, 59);
-            this.txtBoxPatientLName.Name = "txtBoxPatientLName";
-            this.txtBoxPatientLName.Size = new System.Drawing.Size(291, 30);
-            this.txtBoxPatientLName.TabIndex = 17;
+            this.txtBoxHHName.Enabled = false;
+            this.txtBoxHHName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxHHName.Location = new System.Drawing.Point(30, 59);
+            this.txtBoxHHName.Name = "txtBoxHHName";
+            this.txtBoxHHName.Size = new System.Drawing.Size(291, 30);
+            this.txtBoxHHName.TabIndex = 17;
             // 
             // label6
             // 
@@ -244,23 +248,24 @@
             this.label6.TabIndex = 29;
             this.label6.Text = "Household Head - Employer:";
             // 
-            // textBox1
+            // txtBoxHHHeadEmployer
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(30, 504);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(291, 30);
-            this.textBox1.TabIndex = 28;
+            this.txtBoxHHHeadEmployer.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxHHHeadEmployer.Location = new System.Drawing.Point(30, 504);
+            this.txtBoxHHHeadEmployer.Name = "txtBoxHHHeadEmployer";
+            this.txtBoxHHHeadEmployer.Size = new System.Drawing.Size(291, 30);
+            this.txtBoxHHHeadEmployer.TabIndex = 28;
             // 
-            // button1
+            // btnEditHousehold
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(198, 780);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(152, 57);
-            this.button1.TabIndex = 30;
-            this.button1.Text = "EDIT APPOINTMENT";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnEditHousehold.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditHousehold.Location = new System.Drawing.Point(30, 844);
+            this.btnEditHousehold.Name = "btnEditHousehold";
+            this.btnEditHousehold.Size = new System.Drawing.Size(152, 57);
+            this.btnEditHousehold.TabIndex = 30;
+            this.btnEditHousehold.Text = "EDIT HOUSEHOLD";
+            this.btnEditHousehold.UseVisualStyleBackColor = true;
+            this.btnEditHousehold.Click += new System.EventHandler(this.btnEditHousehold_Click);
             // 
             // label7
             // 
@@ -272,13 +277,13 @@
             this.label7.TabIndex = 32;
             this.label7.Text = "Household Head - Work Number:";
             // 
-            // textBox2
+            // txtBoxHHHeadWorkNumber
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(30, 600);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(291, 30);
-            this.textBox2.TabIndex = 31;
+            this.txtBoxHHHeadWorkNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxHHHeadWorkNumber.Location = new System.Drawing.Point(30, 600);
+            this.txtBoxHHHeadWorkNumber.Name = "txtBoxHHHeadWorkNumber";
+            this.txtBoxHHHeadWorkNumber.Size = new System.Drawing.Size(291, 30);
+            this.txtBoxHHHeadWorkNumber.TabIndex = 31;
             // 
             // label8
             // 
@@ -290,37 +295,49 @@
             this.label8.TabIndex = 34;
             this.label8.Text = "Household Head - Home Number:";
             // 
-            // textBox3
+            // txtBoxHHHeadHomeNumber
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(30, 703);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(291, 30);
-            this.textBox3.TabIndex = 33;
+            this.txtBoxHHHeadHomeNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxHHHeadHomeNumber.Location = new System.Drawing.Point(30, 703);
+            this.txtBoxHHHeadHomeNumber.Name = "txtBoxHHHeadHomeNumber";
+            this.txtBoxHHHeadHomeNumber.Size = new System.Drawing.Size(291, 30);
+            this.txtBoxHHHeadHomeNumber.TabIndex = 33;
+            // 
+            // btnChooseHousehold
+            // 
+            this.btnChooseHousehold.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChooseHousehold.Location = new System.Drawing.Point(207, 758);
+            this.btnChooseHousehold.Name = "btnChooseHousehold";
+            this.btnChooseHousehold.Size = new System.Drawing.Size(152, 143);
+            this.btnChooseHousehold.TabIndex = 36;
+            this.btnChooseHousehold.Text = "CHOOSE HOUSEHOLD";
+            this.btnChooseHousehold.UseVisualStyleBackColor = true;
+            this.btnChooseHousehold.Click += new System.EventHandler(this.btnChooseHousehold_Click);
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1677, 958);
+            this.Controls.Add(this.btnChooseHousehold);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtBoxHHHeadHomeNumber);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.txtBoxHHHeadWorkNumber);
+            this.Controls.Add(this.btnEditHousehold);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.btnEditAppoint);
+            this.Controls.Add(this.txtBoxHHHeadEmployer);
+            this.Controls.Add(this.btnAddHousehold);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtBoxPatientCN);
+            this.Controls.Add(this.txtBoxHHHeadInsurance);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtBoxPatientID);
+            this.Controls.Add(this.txtBoxHHHeadLName);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtBoxPatientMName);
+            this.Controls.Add(this.txtBoxHHHeadMName);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtBoxPatientFName);
+            this.Controls.Add(this.txtBoxHHHeadFName);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtBoxPatientLName);
+            this.Controls.Add(this.txtBoxHHName);
             this.Controls.Add(this.dataGridHousehold);
             this.Name = "Form2";
             this.Text = "Form2";
@@ -342,23 +359,24 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn hhHeadEmployer;
         private System.Windows.Forms.DataGridViewTextBoxColumn hhHeadWorkNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn hhHeadHomeNumber;
-        private System.Windows.Forms.Button btnEditAppoint;
+        private System.Windows.Forms.Button btnAddHousehold;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtBoxPatientCN;
+        private System.Windows.Forms.TextBox txtBoxHHHeadInsurance;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtBoxPatientID;
+        private System.Windows.Forms.TextBox txtBoxHHHeadLName;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtBoxPatientMName;
+        private System.Windows.Forms.TextBox txtBoxHHHeadMName;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtBoxPatientFName;
+        private System.Windows.Forms.TextBox txtBoxHHHeadFName;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtBoxPatientLName;
+        private System.Windows.Forms.TextBox txtBoxHHName;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtBoxHHHeadEmployer;
+        private System.Windows.Forms.Button btnEditHousehold;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtBoxHHHeadWorkNumber;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtBoxHHHeadHomeNumber;
+        private System.Windows.Forms.Button btnChooseHousehold;
     }
 }
