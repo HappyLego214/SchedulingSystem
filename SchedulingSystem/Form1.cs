@@ -46,7 +46,7 @@ namespace SchedulingSystem
 
         private void createTable()
         {
-            string sqlStatement = (@"CREATE TABLE " + txtbxSelectedDate.Text +  " ( appID INT PRIMARY KEY AUTO_INCREMENT, appTimeSlot VARCHAR(100), ptLastName VARCHAR(50), ptFirstName VARCHAR(50), ptMiddleName VARCHAR(50), ptContactNumber VARCHAR(50) );");
+            string sqlStatement = (@"CREATE TABLE " + txtbxSelectedDate.Text + " ( appID INT PRIMARY KEY AUTO_INCREMENT, appTimeSlot VARCHAR(100), ptLastName VARCHAR(50) DEFAULT '---', ptFirstName VARCHAR(50)  DEFAULT '---', ptMiddleName VARCHAR(50) DEFAULT '---');");
             MessageBox.Show("Table Created", "Success!");
 
             try
@@ -74,26 +74,20 @@ namespace SchedulingSystem
 
         private void insertTimeValues()
         {
-            command = new MySqlCommand(@"INSERT INTO " + txtbxSelectedDate.Text + " (`appTimeSlot`, `ptLastName`, `ptFirstName`, `ptMiddleName`, `ptContactNumber`) " +
-                "VALUES('8:00', '---', '---', '---', '---'), ('8:30', '---', '---', '---', '---'), ('9:00', '---', '---', '---', '---'), " +
-                "('9:30', '---', '---', '---', '---'), ('10:00', '---', '---', '---', '---'), " +
-                "('10:30', '---', '---', '---', '---'), ('11:00', '---', '---', '---', '---'), " +
-                "('11:30', '---', '---', '---', '---'), ('13:00', '---', '---', '---', '---'), " +
-                "('13:30', '---', '---', '---', '---'), ('14:00', '---', '---', '---', '---'), " +
-                "('14:30', '---', '---', '---', '---'), ('15:00', '---', '---', '---', '---'), " +
-                "('15:30', '---', '---', '---', '---'), ('16:00', '---', '---', '---', '---'), " +
-                "('16:30', '---', '---', '---', '---'), ('17:00', '---', '---', '---', '---');", connection);
+            command = new MySqlCommand(@"INSERT INTO " + txtbxSelectedDate.Text + " (`appTimeSlot`) " +
+                "VALUES ('8:00'), ('8:30'), ('9:00'), ('9:30'), ('10:00'), ('10:30'), ('11:00'), ('11:30'), " +
+                "('13:00'), ('13:30'), ('14:00'), ('14:30'), ('15:00'), ('15:30'), ('16:00'), ('16:30'), ('17:00');", connection);
             command.ExecuteNonQuery();
         }
 
         private void LoadTable()
         {
             dataGridAppointment.Rows.Clear();
-            command = new MySqlCommand(@"SELECT appID, appTimeSlot, ptLastName, ptFirstName, ptMiddleName, ptContactNumber FROM " + txtbxSelectedDate.Text + ";", connection);
+            command = new MySqlCommand(@"SELECT appID, appTimeSlot, ptLastName, ptFirstName, ptMiddleName FROM " + txtbxSelectedDate.Text + ";", connection);
             reader = command.ExecuteReader();
             while (reader.Read())
             {
-                dataGridAppointment.Rows.Add(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5));    
+                dataGridAppointment.Rows.Add(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4));    
             }
 
         }
@@ -175,14 +169,11 @@ namespace SchedulingSystem
                     dataGridAppointment.SelectedRows[0].Cells[3].Value.ToString();
                 txtBoxPatientMName.Text =
                     dataGridAppointment.SelectedRows[0].Cells[4].Value.ToString();
-                txtBoxPatientCN.Text =
-                    dataGridAppointment.SelectedRows[0].Cells[5].Value.ToString();
             }
         }
 
         private void ClearAll()
         {
-            txtBoxPatientCN.Clear();
             txtBoxPatientFName.Clear();
             txtBoxPatientLName.Clear();
             txtBoxPatientMName.Clear();
@@ -193,7 +184,7 @@ namespace SchedulingSystem
         {
             if (dataGridAppointment.SelectedRows.Count > 0)
             {
-                string sqlStatement = (@"UPDATE `" + txtbxSelectedDate.Text + "` SET `ptLastName`='" + txtBoxPatientLName.Text + "',`ptFirstName`='" + txtBoxPatientFName.Text + "',`ptMiddleName`='" + txtBoxPatientMName.Text + "',`ptContactNumber`='" + txtBoxPatientCN.Text + "' WHERE appID = '" + txtBoxPatientID.Text + "';");
+                string sqlStatement = (@"UPDATE `" + txtbxSelectedDate.Text + "` SET `ptLastName`='" + txtBoxPatientLName.Text + "',`ptFirstName`='" + txtBoxPatientFName.Text + "',`ptMiddleName`='" + txtBoxPatientMName.Text + "' WHERE appID = '" + txtBoxPatientID.Text + "';");
                 try
                 {
                     if (connection.State == ConnectionState.Closed)
@@ -254,6 +245,28 @@ namespace SchedulingSystem
             {          
                frm2.ShowDialog();
                txtBoxHouseholdTag.Text = frm2.sendHouseholdName;
+            }
+        }
+
+        private void btnChooseHHM_Click(object sender, EventArgs e)
+        {
+            using (Form3 frm3 = new Form3())
+
+            {
+
+                frm3.householdTag = txtBoxHouseholdTag.Text;
+                frm3.ShowDialog();
+
+            }
+        }
+        private void txtBoxHouseholdTag_TextChanged(object sender, EventArgs e)
+        {
+            if (txtBoxHouseholdTag.Text.Length > 0)
+            {
+                btnChooseHHM.Enabled= true;
+            } else
+            {
+                btnChooseHHM.Enabled= false;
             }
         }
     }

@@ -40,8 +40,6 @@
             this.txtBoxPatientMName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtBoxPatientID = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtBoxPatientCN = new System.Windows.Forms.TextBox();
             this.btnEditAppoint = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -54,12 +52,6 @@
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dataGridAppointment = new System.Windows.Forms.DataGridView();
-            this.appID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.appTimeSlot = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ptLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ptFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ptMiddleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ptContactNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.displayPanel = new System.Windows.Forms.TabControl();
             this.btnDeleteTable = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
@@ -69,7 +61,13 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtBoxHouseholdTag = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnChooseHHM = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.appID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.appTimeSlot = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ptLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ptFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ptMiddleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabPage1.SuspendLayout();
@@ -138,7 +136,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(20, 731);
+            this.label2.Location = new System.Drawing.Point(243, 648);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(177, 25);
             this.label2.TabIndex = 8;
@@ -147,7 +145,7 @@
             // txtBoxPatientFName
             // 
             this.txtBoxPatientFName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxPatientFName.Location = new System.Drawing.Point(25, 771);
+            this.txtBoxPatientFName.Location = new System.Drawing.Point(248, 688);
             this.txtBoxPatientFName.Name = "txtBoxPatientFName";
             this.txtBoxPatientFName.Size = new System.Drawing.Size(179, 30);
             this.txtBoxPatientFName.TabIndex = 7;
@@ -156,7 +154,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(20, 819);
+            this.label3.Location = new System.Drawing.Point(20, 743);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(198, 25);
             this.label3.TabIndex = 10;
@@ -165,7 +163,7 @@
             // txtBoxPatientMName
             // 
             this.txtBoxPatientMName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxPatientMName.Location = new System.Drawing.Point(25, 859);
+            this.txtBoxPatientMName.Location = new System.Drawing.Point(25, 783);
             this.txtBoxPatientMName.Name = "txtBoxPatientMName";
             this.txtBoxPatientMName.Size = new System.Drawing.Size(179, 30);
             this.txtBoxPatientMName.TabIndex = 9;
@@ -174,46 +172,29 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(248, 648);
+            this.label4.Location = new System.Drawing.Point(628, 648);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(102, 25);
+            this.label4.Size = new System.Drawing.Size(152, 25);
             this.label4.TabIndex = 12;
-            this.label4.Text = "Patient ID:";
+            this.label4.Text = "Appointment ID:";
             // 
             // txtBoxPatientID
             // 
+            this.txtBoxPatientID.Enabled = false;
             this.txtBoxPatientID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxPatientID.Location = new System.Drawing.Point(253, 688);
+            this.txtBoxPatientID.Location = new System.Drawing.Point(633, 688);
             this.txtBoxPatientID.Name = "txtBoxPatientID";
             this.txtBoxPatientID.Size = new System.Drawing.Size(179, 30);
             this.txtBoxPatientID.TabIndex = 11;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(248, 731);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(225, 25);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Patient Contact Number:";
-            // 
-            // txtBoxPatientCN
-            // 
-            this.txtBoxPatientCN.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxPatientCN.Location = new System.Drawing.Point(253, 771);
-            this.txtBoxPatientCN.Name = "txtBoxPatientCN";
-            this.txtBoxPatientCN.Size = new System.Drawing.Size(179, 30);
-            this.txtBoxPatientCN.TabIndex = 13;
-            // 
             // btnEditAppoint
             // 
             this.btnEditAppoint.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditAppoint.Location = new System.Drawing.Point(253, 832);
+            this.btnEditAppoint.Location = new System.Drawing.Point(248, 756);
             this.btnEditAppoint.Name = "btnEditAppoint";
             this.btnEditAppoint.Size = new System.Drawing.Size(179, 57);
             this.btnEditAppoint.TabIndex = 16;
-            this.btnEditAppoint.Text = "EDIT APPOINTMENT";
+            this.btnEditAppoint.Text = "INSERT WALK-IN";
             this.btnEditAppoint.UseVisualStyleBackColor = true;
             this.btnEditAppoint.Click += new System.EventHandler(this.btnEditAppoint_Click);
             // 
@@ -321,14 +302,126 @@
             this.appTimeSlot,
             this.ptLastName,
             this.ptFirstName,
-            this.ptMiddleName,
-            this.ptContactNumber});
+            this.ptMiddleName});
             this.dataGridAppointment.Location = new System.Drawing.Point(0, 0);
             this.dataGridAppointment.Name = "dataGridAppointment";
             this.dataGridAppointment.ReadOnly = true;
             this.dataGridAppointment.Size = new System.Drawing.Size(1038, 465);
             this.dataGridAppointment.TabIndex = 0;
             this.dataGridAppointment.SelectionChanged += new System.EventHandler(this.dataGridAppointment_SelectionChanged);
+            // 
+            // displayPanel
+            // 
+            this.displayPanel.Controls.Add(this.tabPage1);
+            this.displayPanel.Controls.Add(this.tabPage3);
+            this.displayPanel.Location = new System.Drawing.Point(516, 18);
+            this.displayPanel.Name = "displayPanel";
+            this.displayPanel.SelectedIndex = 0;
+            this.displayPanel.Size = new System.Drawing.Size(1046, 493);
+            this.displayPanel.TabIndex = 1;
+            // 
+            // btnDeleteTable
+            // 
+            this.btnDeleteTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteTable.Location = new System.Drawing.Point(322, 435);
+            this.btnDeleteTable.Name = "btnDeleteTable";
+            this.btnDeleteTable.Size = new System.Drawing.Size(132, 57);
+            this.btnDeleteTable.TabIndex = 19;
+            this.btnDeleteTable.Text = "DELETE TABLE";
+            this.btnDeleteTable.UseVisualStyleBackColor = true;
+            this.btnDeleteTable.Click += new System.EventHandler(this.btnDeleteTable_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(76, 571);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(315, 39);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "WALK-IN PATIENT";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(795, 571);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(396, 39);
+            this.label8.TabIndex = 21;
+            this.label8.Text = "REGISTERED PATIENT";
+            // 
+            // btnChooseHH
+            // 
+            this.btnChooseHH.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChooseHH.Location = new System.Drawing.Point(849, 756);
+            this.btnChooseHH.Name = "btnChooseHH";
+            this.btnChooseHH.Size = new System.Drawing.Size(179, 57);
+            this.btnChooseHH.TabIndex = 26;
+            this.btnChooseHH.Text = "CHOOSE HOUSEHOLD";
+            this.btnChooseHH.UseVisualStyleBackColor = true;
+            this.btnChooseHH.Click += new System.EventHandler(this.btnChooseHH_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(1079, 648);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(189, 25);
+            this.label9.TabIndex = 25;
+            this.label9.Text = "Household Member:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Enabled = false;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(1084, 688);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(238, 30);
+            this.textBox1.TabIndex = 24;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(844, 648);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(169, 25);
+            this.label10.TabIndex = 23;
+            this.label10.Text = "Household Name:";
+            // 
+            // txtBoxHouseholdTag
+            // 
+            this.txtBoxHouseholdTag.Enabled = false;
+            this.txtBoxHouseholdTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxHouseholdTag.Location = new System.Drawing.Point(849, 688);
+            this.txtBoxHouseholdTag.Name = "txtBoxHouseholdTag";
+            this.txtBoxHouseholdTag.Size = new System.Drawing.Size(179, 30);
+            this.txtBoxHouseholdTag.TabIndex = 22;
+            this.txtBoxHouseholdTag.TextChanged += new System.EventHandler(this.txtBoxHouseholdTag_TextChanged);
+            // 
+            // btnChooseHHM
+            // 
+            this.btnChooseHHM.Enabled = false;
+            this.btnChooseHHM.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChooseHHM.Location = new System.Drawing.Point(1084, 756);
+            this.btnChooseHHM.Name = "btnChooseHHM";
+            this.btnChooseHHM.Size = new System.Drawing.Size(243, 57);
+            this.btnChooseHHM.TabIndex = 27;
+            this.btnChooseHHM.Text = "CHOOSE HOUSEHOLD MEMBER";
+            this.btnChooseHHM.UseVisualStyleBackColor = true;
+            this.btnChooseHHM.Click += new System.EventHandler(this.btnChooseHHM_Click);
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(633, 756);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(179, 57);
+            this.button1.TabIndex = 28;
+            this.button1.Text = "APPOINT PATIENT";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // appID
             // 
@@ -367,119 +460,13 @@
             this.ptMiddleName.Name = "ptMiddleName";
             this.ptMiddleName.ReadOnly = true;
             // 
-            // ptContactNumber
-            // 
-            this.ptContactNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ptContactNumber.HeaderText = "Patient Contact Number";
-            this.ptContactNumber.Name = "ptContactNumber";
-            this.ptContactNumber.ReadOnly = true;
-            // 
-            // displayPanel
-            // 
-            this.displayPanel.Controls.Add(this.tabPage1);
-            this.displayPanel.Controls.Add(this.tabPage3);
-            this.displayPanel.Location = new System.Drawing.Point(516, 18);
-            this.displayPanel.Name = "displayPanel";
-            this.displayPanel.SelectedIndex = 0;
-            this.displayPanel.Size = new System.Drawing.Size(1046, 493);
-            this.displayPanel.TabIndex = 1;
-            // 
-            // btnDeleteTable
-            // 
-            this.btnDeleteTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteTable.Location = new System.Drawing.Point(322, 435);
-            this.btnDeleteTable.Name = "btnDeleteTable";
-            this.btnDeleteTable.Size = new System.Drawing.Size(132, 57);
-            this.btnDeleteTable.TabIndex = 19;
-            this.btnDeleteTable.Text = "DELETE TABLE";
-            this.btnDeleteTable.UseVisualStyleBackColor = true;
-            this.btnDeleteTable.Click += new System.EventHandler(this.btnDeleteTable_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(76, 571);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(315, 39);
-            this.label7.TabIndex = 20;
-            this.label7.Text = "WALK-IN PATIENT";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(871, 571);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(396, 39);
-            this.label8.TabIndex = 21;
-            this.label8.Text = "REGISTERED PATIENT";
-            // 
-            // btnChooseHH
-            // 
-            this.btnChooseHH.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChooseHH.Location = new System.Drawing.Point(848, 744);
-            this.btnChooseHH.Name = "btnChooseHH";
-            this.btnChooseHH.Size = new System.Drawing.Size(179, 57);
-            this.btnChooseHH.TabIndex = 26;
-            this.btnChooseHH.Text = "CHOOSE HOUSEHOLD";
-            this.btnChooseHH.UseVisualStyleBackColor = true;
-            this.btnChooseHH.Click += new System.EventHandler(this.btnChooseHH_Click);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(1078, 648);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(189, 25);
-            this.label9.TabIndex = 25;
-            this.label9.Text = "Household Member:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(1083, 688);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(238, 30);
-            this.textBox1.TabIndex = 24;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(843, 648);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(169, 25);
-            this.label10.TabIndex = 23;
-            this.label10.Text = "Household Name:";
-            // 
-            // txtBoxHouseholdTag
-            // 
-            this.txtBoxHouseholdTag.Enabled = false;
-            this.txtBoxHouseholdTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxHouseholdTag.Location = new System.Drawing.Point(848, 688);
-            this.txtBoxHouseholdTag.Name = "txtBoxHouseholdTag";
-            this.txtBoxHouseholdTag.Size = new System.Drawing.Size(179, 30);
-            this.txtBoxHouseholdTag.TabIndex = 22;
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(1083, 744);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(243, 57);
-            this.button2.TabIndex = 27;
-            this.button2.Text = "CHOOSE HOUSEHOLD MEMBER";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // calendarSystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1574, 981);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnChooseHHM);
             this.Controls.Add(this.btnChooseHH);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.textBox1);
@@ -490,8 +477,6 @@
             this.Controls.Add(this.btnDeleteTable);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnEditAppoint);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtBoxPatientCN);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtBoxPatientID);
             this.Controls.Add(this.label3);
@@ -532,8 +517,6 @@
         private System.Windows.Forms.TextBox txtBoxPatientMName;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtBoxPatientID;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtBoxPatientCN;
         private System.Windows.Forms.Button btnEditAppoint;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TabPage tabPage3;
@@ -546,12 +529,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.DataGridView dataGridAppointment;
-        private System.Windows.Forms.DataGridViewTextBoxColumn appID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn appTimeSlot;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ptLastName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ptFirstName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ptMiddleName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ptContactNumber;
         private System.Windows.Forms.TabControl displayPanel;
         private System.Windows.Forms.Button btnDeleteTable;
         private System.Windows.Forms.Label label7;
@@ -561,7 +538,13 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtBoxHouseholdTag;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnChooseHHM;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn appID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn appTimeSlot;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ptLastName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ptFirstName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ptMiddleName;
     }
 }
 
