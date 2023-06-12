@@ -40,13 +40,13 @@ namespace SchedulingSystem
 
         private void appointmentCalendar_DateSelected(object sender, DateRangeEventArgs e)
         {
-            string a = "tbl" + appointmentCalendar.SelectionRange.Start.ToString("MM/dd/yyyy").Replace("/","");
+            string a = "tbl" + appointmentCalendar.SelectionRange.Start.ToString("MM/dd/yyyy").Replace("/", "") + txtBoxSelectedDoc.Text.Replace(" ", "");
             txtbxSelectedDate.Text = a;
         }
 
         private void createTable()
         {
-            string sqlStatement = (@"CREATE TABLE " + txtbxSelectedDate.Text + " ( appID INT PRIMARY KEY AUTO_INCREMENT, appTimeSlot VARCHAR(100), ptLastName VARCHAR(50) DEFAULT '---', ptFirstName VARCHAR(50)  DEFAULT '---', ptMiddleName VARCHAR(50) DEFAULT '---');");
+            string sqlStatement = (@"CREATE TABLE " + txtbxSelectedDate.Text + " ( appID INT PRIMARY KEY AUTO_INCREMENT, appTimeSlot VARCHAR(100), ptName VARCHAR(50) DEFAULT '---', ptServiceCode VARCHAR(50)  DEFAULT '---', ptServiceDesc VARCHAR(100) DEFAULT '---');");
             MessageBox.Show("Table Created", "Success!");
 
             try
@@ -82,12 +82,12 @@ namespace SchedulingSystem
 
         private void LoadTable()
         {
-            dataGridAppointment.Rows.Clear();
-            command = new MySqlCommand(@"SELECT appID, appTimeSlot, ptLastName, ptFirstName, ptMiddleName FROM " + txtbxSelectedDate.Text + ";", connection);
+            dataGridAppointments.Rows.Clear();
+            command = new MySqlCommand(@"SELECT appID, appTimeSlot, ptName, ptServiceCode, ptServiceDesc FROM " + txtbxSelectedDate.Text + ";", connection);
             reader = command.ExecuteReader();
             while (reader.Read())
             {
-                dataGridAppointment.Rows.Add(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4));    
+                dataGridAppointments.Rows.Add(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4));    
             }
 
         }
@@ -157,34 +157,18 @@ namespace SchedulingSystem
             }
         }
 
-        private void dataGridAppointment_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dataGridAppointment.SelectedRows.Count > 0)
-            {
-                txtBoxPatientID.Text =
-                     dataGridAppointment.SelectedRows[0].Cells[0].Value.ToString();
-                txtBoxPatientLName.Text =
-                    dataGridAppointment.SelectedRows[0].Cells[2].Value.ToString();
-                txtBoxPatientFName.Text =
-                    dataGridAppointment.SelectedRows[0].Cells[3].Value.ToString();
-                txtBoxPatientMName.Text =
-                    dataGridAppointment.SelectedRows[0].Cells[4].Value.ToString();
-            }
-        }
-
         private void ClearAll()
         {
-            txtBoxPatientFName.Clear();
-            txtBoxPatientLName.Clear();
-            txtBoxPatientMName.Clear();
-            txtBoxPatientID.Clear();
+            txtBoxServiceCode.Clear();
+            txtBoxSCDesc.Clear();
+            txtBoxAppID.Clear();
         }
 
         private void btnEditAppoint_Click(object sender, EventArgs e)
         {
-            if (dataGridAppointment.SelectedRows.Count > 0)
+            if (dataGridAppointments.SelectedRows.Count > 0)
             {
-                string sqlStatement = (@"UPDATE `" + txtbxSelectedDate.Text + "` SET `ptLastName`='" + txtBoxPatientLName.Text + "',`ptFirstName`='" + txtBoxPatientFName.Text + "',`ptMiddleName`='" + txtBoxPatientMName.Text + "' WHERE appID = '" + txtBoxPatientID.Text + "';");
+                string sqlStatement = (@"UPDATE `" + txtbxSelectedDate.Text + "` SET `ptServiceCode`='" + txtBoxServiceCode.Text + "',`ptServiceDesc`='" + txtBoxSCDesc.Text + "' WHERE appID = '" + txtBoxAppID.Text + "';");
                 try
                 {
                     if (connection.State == ConnectionState.Closed)
@@ -233,7 +217,7 @@ namespace SchedulingSystem
             }
             finally
             {
-                dataGridAppointment.Rows.Clear();
+                dataGridAppointments.Rows.Clear();
                 connection.Close();
                 Console.WriteLine("Connection Is Closed");
             }
@@ -244,8 +228,10 @@ namespace SchedulingSystem
             using (Form2 frm2 = new Form2())
             {          
                frm2.ShowDialog();
-               txtBoxHouseholdTag.Text = frm2.sendHouseholdName;
+               txtBoxHouseholdTag.Text = "household" + frm2.sendHouseholdName.ToLower(); ;
             }
+
+            txtBoxHMName.Clear();
         }
 
         private void btnChooseHHM_Click(object sender, EventArgs e)
@@ -253,10 +239,9 @@ namespace SchedulingSystem
             using (Form3 frm3 = new Form3())
 
             {
-
                 frm3.householdTag = txtBoxHouseholdTag.Text;
                 frm3.ShowDialog();
-
+                txtBoxHMName.Text = frm3.sendHouseholdMemberName;
             }
         }
         private void txtBoxHouseholdTag_TextChanged(object sender, EventArgs e)
@@ -267,6 +252,105 @@ namespace SchedulingSystem
             } else
             {
                 btnChooseHHM.Enabled= false;
+            }
+        }
+
+
+        private void txtBoxHMName_TextChanged(object sender, EventArgs e)
+        {
+            if (txtBoxHMName.Text.Length > 0)
+            {
+                btnAppointPatient.Enabled = true;
+            }
+            else
+            {
+                btnAppointPatient.Enabled = false;
+            }
+        }
+
+        private void txtbxSelectedDate_TextChanged(object sender, EventArgs e)
+        {
+            if (txtbxSelectedDate.Text.Length > 0)
+            {
+                btnChooseHH.Enabled = true;
+            }
+            else
+            {
+                btnChooseHH.Enabled = false;
+            }
+        }
+
+        private void txtBoxSelectedDoc_TextChanged(object sender, EventArgs e)
+        {
+            if (txtBoxSelectedDoc.Text.Length > 0)
+            {
+                btnCreateTable.Enabled = true;
+                btnLoadTable.Enabled = true;
+                btnDeleteTable.Enabled = true;
+                appointmentCalendar.Enabled = true;
+            } else
+            {
+                btnCreateTable.Enabled = false;
+                btnLoadTable.Enabled = false;
+                btnDeleteTable.Enabled = false;
+                appointmentCalendar.Enabled = false;
+
+            }
+        }
+
+        private void btnAppointPatient_Click(object sender, EventArgs e)
+        {
+            if (dataGridAppointments.SelectedRows.Count > 0)
+            {
+                string sqlStatement = (@"UPDATE `"+ txtbxSelectedDate.Text +"` SET ptName = '"+txtBoxHMName.Text+"' WHERE appID = "+txtBoxAppID.Text+";");
+                try
+                {
+                    if (connection.State == ConnectionState.Closed)
+                    {
+                        connection.Open();
+                    }
+                    Console.WriteLine("Connection Is Open");
+                    MySqlCommand command = new MySqlCommand(sqlStatement, connection);
+                    command.ExecuteNonQuery();
+                    Console.WriteLine("Table Edited");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                finally
+                {
+                    LoadTable();
+                    ClearAll();
+                    MessageBox.Show("Appointment Added", "Success");
+                    connection.Close();
+                    Console.WriteLine("Connection Is Closed");
+                }
+            } else
+            {
+                MessageBox.Show("Please Choose An Appointment Schedule", "Error");
+            }
+        }
+
+        private void dataGridAppointments_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridAppointments.SelectedRows.Count > 0)
+            {
+                txtBoxAppID.Text =
+                    dataGridAppointments.SelectedRows[0].Cells[0].Value.ToString();
+                txtBoxServiceCode.Text =
+                    dataGridAppointments.SelectedRows[0].Cells[3].Value.ToString();
+                txtBoxSCDesc.Text =
+                    dataGridAppointments.SelectedRows[0].Cells[4].Value.ToString();
+            }
+        }
+
+        private void btnChooseMP_Click(object sender, EventArgs e)
+        {
+            using (Form4 frm4 = new Form4())
+            {
+                frm4.ShowDialog();
+                txtBoxSelectedDoc.Text = frm4.sendMPLastName;
             }
         }
     }

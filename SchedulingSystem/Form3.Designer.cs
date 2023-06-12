@@ -49,6 +49,9 @@
             this.txtBoxMemberID = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtBoxHHTag = new System.Windows.Forms.TextBox();
+            this.btnChooseMember = new System.Windows.Forms.Button();
+            this.btnEditMember = new System.Windows.Forms.Button();
+            this.btnAddMember = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridHouseholdMember)).BeginInit();
             this.SuspendLayout();
             // 
@@ -215,7 +218,6 @@
             // 
             // txtBoxMemberID
             // 
-            this.txtBoxMemberID.Enabled = false;
             this.txtBoxMemberID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBoxMemberID.Location = new System.Drawing.Point(41, 151);
             this.txtBoxMemberID.Name = "txtBoxMemberID";
@@ -241,11 +243,47 @@
             this.txtBoxHHTag.Size = new System.Drawing.Size(291, 30);
             this.txtBoxHHTag.TabIndex = 42;
             // 
+            // btnChooseMember
+            // 
+            this.btnChooseMember.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChooseMember.Location = new System.Drawing.Point(221, 668);
+            this.btnChooseMember.Name = "btnChooseMember";
+            this.btnChooseMember.Size = new System.Drawing.Size(152, 143);
+            this.btnChooseMember.TabIndex = 46;
+            this.btnChooseMember.Text = "CHOOSE MEMBER";
+            this.btnChooseMember.UseVisualStyleBackColor = true;
+            this.btnChooseMember.Click += new System.EventHandler(this.btnChooseMember_Click);
+            // 
+            // btnEditMember
+            // 
+            this.btnEditMember.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditMember.Location = new System.Drawing.Point(44, 754);
+            this.btnEditMember.Name = "btnEditMember";
+            this.btnEditMember.Size = new System.Drawing.Size(152, 57);
+            this.btnEditMember.TabIndex = 45;
+            this.btnEditMember.Text = "EDIT MEMBER";
+            this.btnEditMember.UseVisualStyleBackColor = true;
+            this.btnEditMember.Click += new System.EventHandler(this.btnEditMember_Click);
+            // 
+            // btnAddMember
+            // 
+            this.btnAddMember.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddMember.Location = new System.Drawing.Point(43, 668);
+            this.btnAddMember.Name = "btnAddMember";
+            this.btnAddMember.Size = new System.Drawing.Size(152, 57);
+            this.btnAddMember.TabIndex = 44;
+            this.btnAddMember.Text = "ADD MEMBER";
+            this.btnAddMember.UseVisualStyleBackColor = true;
+            this.btnAddMember.Click += new System.EventHandler(this.btnAddMember_Click);
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1366, 884);
+            this.Controls.Add(this.btnChooseMember);
+            this.Controls.Add(this.btnEditMember);
+            this.Controls.Add(this.btnAddMember);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtBoxHHTag);
             this.Controls.Add(this.label6);
@@ -293,5 +331,8 @@
         private System.Windows.Forms.TextBox txtBoxMemberID;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtBoxHHTag;
+        private System.Windows.Forms.Button btnChooseMember;
+        private System.Windows.Forms.Button btnEditMember;
+        private System.Windows.Forms.Button btnAddMember;
     }
 }
